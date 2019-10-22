@@ -3,6 +3,8 @@ var money = 0;
 var money_perclick = 1;
 var money_lvl = 1;
 var moneyupg_cost = 1;
+var money_thisuniverse = 0;
+var money_total = 0;
 
 function gameupdate() {
     document.getElementById("money").innerHTML = "$" + money;
