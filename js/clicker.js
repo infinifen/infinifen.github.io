@@ -20,7 +20,8 @@ function gameupdate() {
     document.getElementById("universereset").innerHTML = "Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature]
 
     if (feature > 0) {
-        money_persecond = Math.floor(money_perclick * 0.1);
+        money_persecond = Math.round(money_perclick * 10) / 100;
+        money += money_persecond;
     }
 }
 setInterval(gameupdate, 200);
