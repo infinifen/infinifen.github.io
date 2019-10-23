@@ -10,15 +10,22 @@ var feature = 0; //0=game start 1=auto production
 var featurethresholds = [12000, Infinity];
 var featuredesc = ["Auto Production", "Congratulations! You broke the game!"]
 var money_persecond = 0;
+var transdollars = 0;
 
 function gameupdate() {
-    document.getElementById("money").innerHTML = "$" + money;
+    document.getElementById("money").innerHTML = "$" + Math.round(money);
     document.getElementById("moneyadd").innerHTML = "$$$ (+" + money_perclick + ")";
 
     moneyupg_cost = Math.ceil(Math.pow(money_lvl, 4.5));
     document.getElementById("moneyupg").innerHTML = "Upgrade money per click (x2, cost: " + moneyupg_cost + ")";
-    document.getElementById("universereset").innerHTML = "Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature]
-
+    document.getElementById("universereset").innerHTML = "Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature]+" Progress: " +money_thisuniverse+"/"+featurethresholds[feature];
+    document.getElementById("moneypersecond").innerHTML="per second: $"+money_persecond;
+    if (money >= moneyupg_cost) {
+        document.getElementById("moneyupg").classList.remove('disabled')
+    } else {
+        document.getElementById("moneyupg").classList.add('disabled')
+    }
+    
     if (feature > 0) {
         money_persecond = Math.round(money_perclick * 10) / 100;
         money += money_persecond;
