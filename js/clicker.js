@@ -56,7 +56,7 @@ function moneyupgonclick() {
 
 function universeresetonclick() {
     if (prompt("Are you really sure you want to reset? Type yes to continue...") == "yes") {
-        if (money >= featurethresholds[feature]) {
+        if (money_thisuniverse >= featurethresholds[feature]) {
             feature += 1;
         }
         universe += 1;
