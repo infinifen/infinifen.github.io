@@ -19,7 +19,7 @@ function gameupdate() {
     moneyupg_cost = Math.ceil(Math.pow(money_lvl, 4.5));
     document.getElementById("moneyupg").innerHTML = "Upgrade money per click (x2, cost: " + moneyupg_cost + ")";
     document.getElementById("universereset").innerHTML = "Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature]+" Progress: " +money_thisuniverse+"/"+featurethresholds[feature];
-    document.getElementById("moneypersecond").innerHTML="per second: $"+money_persecond;
+    document.getElementById("moneypersecond").innerHTML="per second: $"+money_persecond*5;
     if (money >= moneyupg_cost) {
         document.getElementById("moneyupg").classList.remove('disabled')
     } else {
@@ -56,7 +56,7 @@ function moneyupgonclick() {
 
 function universeresetonclick() {
     if (prompt("Are you really sure you want to reset? Type yes to continue...") == "yes") {
-        if (money_thisuniverse >= featurethresholds[feature]) {
+        if (money_total >= featurethresholds[feature]) {
             feature += 1;
         }
         universe += 1;
