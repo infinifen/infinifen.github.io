@@ -1,4 +1,3 @@
-//initialize program
 var money = 0;
 var money_perclick = 1;
 var money_lvl = 1;
@@ -14,19 +13,26 @@ var featuredesc = ["Auto Production", "Upgrade Cheapener", "Congratulations! You
 var money_pertick = 0;
 var transdollars = 0;
 
-function gameupdate(addidle = true) {
-    document.getElementById("money").innerHTML = "$" + parseFloat(money.toPrecision(6));
-    document.getElementById("moneyadd").innerHTML = "$$$ (+" + money_perclick + ")";
+$(function () {
+    setInterval(gameupdate, 200);
+    $("#moneyadd").click(moneyaddonclick);
+    $("#moneyupg").click(moneyupgonclick);
+    $("#moneyptupg").click(moneyptupgonclick);
+    $("#universereset").click(universeresetonclick);
+});
 
+function gameupdate(addidle = true) {
+    $("#money").html("$" + parseFloat(money.toPrecision(6)));
+    $("#moneyadd").html("$$$ (+" + money_perclick + ")");
     moneyupg_cost = Math.ceil(Math.pow(money_lvl, 4.5));
     moneyptupg_cost = Math.ceil(moneypt_lvl*Math.pow(1.45,moneypt_lvl))
-    document.getElementById("moneyupg").innerHTML = "Upgrade money per click (x2, cost: " + moneyupg_cost + ")";
-    document.getElementById("universereset").innerHTML = "Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature] + " Progress: " + parseFloat(money_thisuniverse.toPrecision(6)) + "/" + featurethresholds[feature];
-    document.getElementById("moneypersecond").innerHTML = "per second: $" + money_pertick * 5;
+    $("#moneyupg").html("Upgrade money per click (x2, cost: " + moneyupg_cost + ")");
+    $("#universereset").html("Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature] + " Progress: " + parseFloat(money_thisuniverse.toPrecision(6)) + "/" + featurethresholds[feature]);
+    $("#moneypersecond").html("per second: $" + money_pertick * 5);
     if (money >= moneyupg_cost) {
-        document.getElementById("moneyupg").classList.remove('disabled');
+        $("#moneyupg").removeClass('disabled');
     } else {
-        document.getElementById("moneyupg").classList.add('disabled');
+        $("#moneyupg").addClass('disabled');
     }
     if (addidle) {
         if (feature > 0) {
@@ -37,13 +43,6 @@ function gameupdate(addidle = true) {
         }
     }
 }
-setInterval(gameupdate, 200);
-//add event listeners
-document.getElementById("moneyadd").addEventListener("click", moneyaddonclick);
-document.getElementById("moneyupg").addEventListener("click", moneyupgonclick);
-document.getElementById("moneyptupg").addEventListener("click", moneyptupgonclick);
-document.getElementById("universereset").addEventListener("click", universeresetonclick);
-
 
 //button behavior
 function moneyaddonclick() {
@@ -85,7 +84,7 @@ function universeresetonclick() {
         moneyptupg_cost = 1;
         money_pertick = 0;
         if (feature == 1) {
-            document.getElementById("moneyptupg").style.display = "initial";
+            $("#moneyptupg").show();
         }
 
     } else {
