@@ -38,6 +38,11 @@ function gameupdate(addidle = true) {
     } else {
         $("#moneyupg").addClass('disabled');
     }
+    if (money >= moneyptupg_cost) {
+        $("#moneyptupg").removeClass('disabled');
+    } else {
+        $("#moneyptupg").addClass('disabled');
+    }
     if (addidle) {
         if (feature > 0) {
             money_pertick = parseFloat((money_perclick * moneypt_lvl / 10 / 5 /* /5 bc 5 ticks per second*/ ).toPrecision(6));
