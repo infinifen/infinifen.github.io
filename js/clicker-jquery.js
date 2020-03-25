@@ -14,19 +14,23 @@ var money_pertick = 0;
 var transdollars = 0;
 
 $(function () {
+    load("def");
     setInterval(gameupdate, 200);
     $("#moneyadd").click(moneyaddonclick);
     $("#moneyupg").click(moneyupgonclick);
     $("#moneyptupg").click(moneyptupgonclick);
     $("#universereset").click(universeresetonclick);
+    $("#savegame").click(save);
+    $("#loadgame").click(load);
 });
 
 function gameupdate(addidle = true) {
     $("#money").html("$" + parseFloat(money.toPrecision(6)));
     $("#moneyadd").html("$$$ (+" + money_perclick + ")");
-    moneyupg_cost = Math.ceil(Math.pow(money_lvl, 4.5));
+    moneyupg_cost = Math.ceil((Math.floor(money_lvl/3)+1)*Math.pow(3.2, money_lvl));
     moneyptupg_cost = Math.ceil(moneypt_lvl*Math.pow(1.45,moneypt_lvl))
     $("#moneyupg").html("Upgrade money per click (x2, cost: " + moneyupg_cost + ")");
+    $("#moneyptupg").html("Upgrade money per second (+0.1x, cost: "+moneyptupg_cost+")")
     $("#universereset").html("Reset the universe! Next feature: " + featuredesc[feature] + " at $" + featurethresholds[feature] + " Progress: " + parseFloat(money_thisuniverse.toPrecision(6)) + "/" + featurethresholds[feature]);
     $("#moneypersecond").html("per second: $" + money_pertick * 5);
     if (money >= moneyupg_cost) {
@@ -93,4 +97,25 @@ function universeresetonclick() {
             money_perclick = 1e69;
         }
     }
+}
+function save(name){
+    saveobj={m: money, mpc: money_perclick, ml: money_lvl, mupgc: moneyupg_cost,
+    mptl: moneypt_lvl, mptupgc: moneyptupg_cost, mtu: money_thisuniverse, mt: money_total,
+    u: universe, f: feature, td: transdollars};
+    localStorage.setItem(name, JSON.stringify(saveobj));
+}
+
+function load(name="def"){
+    s=JSON.parse(localStorage.getItem(name));
+    money=s.m;
+    money_perclick=s.mpc
+    money_lvl=s.ml;
+    moneyupg_cost=s.mupgc;
+    moneypt_lvl=s.mptl;
+    moneyptupg_cost=s.mptupgc;
+    money_thisuniverse=s.mtu;
+    money_total=s.mt;
+    universe=s.u;
+    feature=s.f;
+    transdollars=s.td;
 }
