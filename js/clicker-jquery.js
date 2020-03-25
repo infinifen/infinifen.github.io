@@ -107,6 +107,10 @@ function save(name){
 
 function load(name="def"){
     s=JSON.parse(localStorage.getItem(name));
+    if (s==null){
+        save();
+        return;
+    }
     money=s.m;
     money_perclick=s.mpc
     money_lvl=s.ml;
