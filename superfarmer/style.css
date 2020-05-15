@@ -1,0 +1,77 @@
+
+body{
+    background-image: linear-gradient(to bottom right,rgb(212, 101, 246), rgb(255, 138, 177));
+    height: 100vh;
+}
+
+.checkbox{
+    background-image: url("krolik.jpg");
+}
+table tr td img{
+    width: 1.55vw;
+    height: 1.55vw;
+    padding: 3px;
+    display: block;
+    border: 1px solid black;
+    margin: 3px auto;
+}
+#animals tr td{
+    width: 1.55vw;
+    height: 1.55vw;
+}
+#animals tr{
+    width:80%;
+}
+#animals{
+    width: inherit;
+    right: 0;
+    opacity: 1;
+}
+img:active{
+    opacity: 0.8;
+}
+#animals{
+    border: 1px solid #00000044;
+}
+#animals td:nth-child(even){
+    background-color: #ffffff55;
+    height: 100%;
+    
+}
+#main, #results{
+    border: 1px solid #00000077;
+    margin: 0 auto;
+    width:90vw;
+    overflow-x: auto;
+}
+#animals, #animals td, #animals tr{
+    border-collapse: collapse;
+    margin: 0 0;
+    padding: 0;
+}
+#numberrow{
+    text-align: center;
+    font-size: 0.5vw;
+    
+}
+.bottomrow{
+    min-width: 25%;
+    float: right;
+}
+.bottomrow img{
+    display: initial;
+}
+#kostki img{
+    width: 50px;
+    height: 50px;
+}
+.selected{
+    opacity: 0.8;
+    filter: drop-shadow(2px 2px #22f);
+}
+#results{
+    visibility: hidden;
+}
+footer{
+    display: inline-block;
+}
