@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabliczka mnożenia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="parametry">
+        <h5>Liczba 1</h5>
+        <label for="od1">od</label>
+        <input type="number" id="od1">
+        <label for="do1">do</label>
+        <input type="number" id="do1">
+        <h5>Liczba 2</h5>
+        <label for="od2">od</label>
+        <input type="number" id="od2">
+        <label for="do2">do</label>
+        <input type="number" id="do2">
+        <h5>Limit czasowy</h5>
+        <label for="czas">limit (sek.)</label>
+        <input type="number" id="czas">
+        <hr>
+        <button id="start" onclick="start()">Start!</button>
+    </div>
+    <div id="tabliczka">
+        <span id="pytanie">5x8=</span>
+        <input type="number" id="odp">
+        <button id="sprawdz" onclick="sprawdz()">Sprawdź</button>
+        <span id="lastqinfo"> </span>
+        <span id="stats"> </span>
+        <span id="pozczas"> </span>
+    </div>
+    <div id="wyniki">
+        <span id="ilenaile">2</span>
+        <span id="punkty">2738</span>
+        <span id="reszta">ugfegguirhgiuhgeriugueriug</span>
+    </div>
+    <script src="tabliczka.js"></script>
+    
+</body>
+</html>

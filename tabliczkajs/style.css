@@ -1,0 +1,63 @@
+#start {
+    padding: 50px;
+    font-size: 2em;
+}
+
+#parametry input {
+    min-width: 70px;
+    max-width: 10%;
+}
+
+#pozczas {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    background-color: aqua;
+}
+
+#pytanie,
+#odp,
+#sprawdz {
+    font-size: 3em;
+    min-width: 70px;
+    max-width: 60%;
+}
+
+#stats,
+#lastqinfo {
+    font-size: 1.5em;
+    display: block;
+}
+
+#tabliczka {
+    display: none;
+}
+
+#punkty,
+#ilenaile,
+#reszta {
+    text-align: center;
+    display: block;
+}
+
+#punkty {
+    font-size: 5em;
+}
+
+#ilenaile {
+    font-size: 3em;
+}
+
+#reszta {
+    font-size: 1.75em;
+}
+
+#wyniki {
+    display: none;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
