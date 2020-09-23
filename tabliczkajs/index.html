@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabliczka mnożenia</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="parametry">
         <h5>Liczba 1</h5>
@@ -21,6 +23,15 @@
         <h5>Limit czasowy</h5>
         <label for="czas">limit (sek.)</label>
         <input type="number" id="czas">
+        <h5>Punktowanie</h5>
+        <div>
+            <input type="radio" id="sc1" name="scoring" value="acc">
+            <label for="sc1"><b>dokładnościowe</b> - nie zwraca uwagi na szybkość, docenia wysoką dokładność</label>
+        </div>
+        <div>
+            <input type="radio" id="sc2" name="scoring" value="spd">
+            <label for="sc2"><b>szybkościowe</b> - im szybciej, tym lepiej</label>
+        </div>
         <hr>
         <button id="start" onclick="start()">Start!</button>
     </div>
@@ -38,6 +49,7 @@
         <span id="reszta">ugfegguirhgiuhgeriugueriug</span>
     </div>
     <script src="tabliczka.js"></script>
-    
+
 </body>
+
 </html>
