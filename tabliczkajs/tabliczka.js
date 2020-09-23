@@ -16,12 +16,14 @@ function koniecCzasu() {
     //wyniki
     document.getElementById("punkty").innerHTML = `${calculatePoints()} pkt.`
     document.getElementById("ilenaile").innerHTML = `${questionsRight}/${questionsAnswered} (${getRightPercent()}%)`;
+    secperq=isFinite((tgiven/questionsAnswered).toFixed(2)) ? (tgiven/questionsAnswered).toFixed(2) : 0;
     switch (calculatePoints) {
         case accScoring:
-            resztatxt = `${(tgiven/questionsAnswered).toFixed(2)} sek./pytanie, maxPkt=${questionsAnswered*100}, %maxPkt=${Math.round(calculatePoints()/(questionsAnswered*100)*100)}%`;
+            pmax=isNaN(Math.round(calculatePoints()/(questionsAnswered*100)*100)) ? 0 : Math.round(calculatePoints()/(questionsAnswered*100)*100);
+            resztatxt = `${secperq} sek./pytanie, maxPkt=${questionsAnswered*100}, %maxPkt=${pmax}%`;
             break;
         case speedScoring:
-            resztatxt = `${(tgiven/questionsAnswered).toFixed(2)} sek./pytanie`;
+            resztatxt = `${secperq} sek./pytanie`;
         default:
             break;
     }
@@ -31,6 +33,7 @@ function koniecCzasu() {
 
 
     clearInterval(counterTickID);
+    clearInterval(statUpdateID);
 
 }
 
@@ -50,10 +53,10 @@ function generateQuestion() {
 }
 
 function start() {
+    document.getElementById("odp").value="";
     //zmienne
     window.questionsAnswered = 0;
     window.questionsRight = 0;
-
     //parametry
     window.od1 = document.getElementById("od1").value;
     window.do1 = document.getElementById("do1").value;
@@ -81,6 +84,7 @@ function start() {
     //tabliczka widzialna parametry nie
     document.getElementById("tabliczka").style.display = "initial";
     document.getElementById("parametry").style.display = "none";
+    document.getElementById("wyniki").style.display = "none";
     //pierwsze pytanie
     generateQuestion();
     document.getElementById("odp").focus();
@@ -96,7 +100,8 @@ function lqiGreen() {
 }
 
 function accScoring() {
-    return (questionsAnswered * (Math.pow(questionsRight / questionsAnswered, 2.1)) * 100).toFixed(0);
+    h=(questionsAnswered * (Math.pow(questionsRight / questionsAnswered, 2.1)) * 100).toFixed(0);
+    return isNaN(h) ? 0 : h;
 }
 
 function speedScoring() {
@@ -125,6 +130,12 @@ function updateStats() {
     st = document.getElementById("stats");
     statStr = `${questionsRight}/${questionsAnswered} (${getRightPercent()}%), ${calculatePoints()} pkt.`
     st.innerHTML = statStr;
+}
+
+function reset(){
+    document.getElementById("tabliczka").style.display = "none";
+    document.getElementById("parametry").style.display = "initial";
+    document.getElementById("wyniki").style.display = "none";
 }
 
 document.getElementById("odp").addEventListener("keydown", function (event) {

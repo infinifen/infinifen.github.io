@@ -23,7 +23,7 @@
         <input type="number" id="do2">
         <h5>Limit czasowy</h5>
         <label for="czas">limit (sek.)</label>
-        <input type="number" id="czas">
+        <input type="number" id="czas" min="1">
         <h5>Punktowanie</h5>
         <div>
             <input type="radio" id="sc1" name="scoring" value="acc">
@@ -45,9 +45,11 @@
         <span id="pozczas"> </span>
     </div>
     <div id="wyniki">
-        <span id="ilenaile">2</span>
-        <span id="punkty">2738</span>
-        <span id="reszta">ugfegguirhgiuhgeriugueriug</span>
+        <span id="ilenaile"></span>
+        <span id="punkty"></span>
+        <span id="reszta"></span>
+        <button id="sprpon" onclick="start()">Spróbuj jeszcze raz!</button>
+        <button id="reset" onclick="reset()">Zmień parametry</button>
     </div>
     <script src="tabliczka.js"></script>
 

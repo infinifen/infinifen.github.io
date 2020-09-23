@@ -52,15 +52,20 @@
     font-size: 1.75em;
 }
 
-#wyniki {
+#wyniki{
     display: none;
-    margin: auto;
+    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+#wyniki button{
+    display: block;
+    margin: auto;
+}
+
 *{
     font-family: 'Roboto Mono', monospace;
 }
