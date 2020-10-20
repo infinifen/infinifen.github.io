@@ -18,3 +18,6 @@ document.getElementById("c").innerHTML=document.getElementById("com").value;
 document.getElementById("var").oninput=function(){document.getElementById("v").innerHTML=document.getElementById("var").value;}
 document.getElementById("com").oninput=function(){document.getElementById("c").innerHTML=document.getElementById("com").value;}
 
+function copy() {
+    navigator.clipboard.writeText(document.getElementById("r").innerHTML);
+  }
