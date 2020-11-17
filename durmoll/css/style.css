@@ -1,0 +1,85 @@
+*{
+    font-family: 'Dosis', sans-serif;
+    font-weight: 600;
+}
+
+#wynik {
+    text-align: center;
+    width: 100%;
+    min-height: 50px;
+    font-size: 36pt;
+    border-bottom: 1px solid #808080;
+    font-weight: 200;
+}
+
+#status {
+    text-align: center;
+    width: 100%;
+    min-height: 36px;
+    font-size: 16pt;
+    border-bottom: 2px solid #808080;
+    margin-bottom: 10px;
+}
+
+#prc{
+    font-size: 70%;
+}
+
+#easter{
+    font-size: 30%;
+}
+
+button{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+#main button{
+    color: black;
+    font-family: sans-serif;
+    background-color: #ccc;
+    display: inline-block;
+    text-align: center;
+    margin:6px;
+    min-width: fit-content;
+    padding: 15px 25px;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 12px;
+    box-shadow: 1px 2px black;
+    overflow: hidden;
+}
+#main button:visited{
+    color: black;
+}
+#main button:hover{
+    background-color: #bbb;
+    color: black;
+}
+#main button:active{
+    color: black;
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+
+#main button:disabled{
+    text-align: center;
+    background-color: #aaa;
+    color: #ddd;
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+
+#version{
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: right;
+}

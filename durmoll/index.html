@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="wynik">0/0 <span id="prc">0%</span></div>
+<div id="status"></div>
+<div id="main">
+    <div>
+        <button id="playnew" onclick="playNew()">nowy</button>
+    </div>
+    <div id="intervals">
+        <input checked type="checkbox" name="toggleints" id="toggleints" onclick="checkboxHandler(this, INTERVALS)">
+        <!-- here go js generated buttons -->
+    </div>
+    <div id="chords">
+        <input checked type="checkbox" name="togglechords" id="togglechords" onclick="checkboxHandler(this, CHORDS)">
+        <!-- here go js generated buttons -->
+    </div>
+    <div id="skipdiv">
+        <button disabled id="skip" onclick="guess(null)">pomiń</button>
+    </div>
+    <audio src="snd/p1.mp3"></audio>
+    <audio src="snd/p2.mp3"></audio>
+    <audio src="snd/p3.mp3"></audio>
+    <audio src="snd/p4.mp3"></audio>
+    <audio src="snd/p5.mp3"></audio>
+    <audio src="snd/p6.mp3"></audio>
+    <audio src="snd/p7.mp3"></audio>
+    <audio src="snd/p8.mp3"></audio>
+    <audio src="snd/p9.mp3"></audio>
+    <audio src="snd/p10.mp3"></audio>
+    <audio src="snd/p11.mp3"></audio>
+    <audio src="snd/p12.mp3"></audio>
+    <audio src="snd/p13.mp3"></audio>
+</div>
+<div id="options">
+    <select name="timingselect" id="timingselect" onclick="timingSelectHandler(this)">
+        <!-- js generated options here -->
+    </select>
+</div>
+<div id="version" title="2020-11-17">v1.0</div>
+
+<script src="js/intervals.js"></script>
+<script src="js/test.js"></script>
+</body>
+</html>
