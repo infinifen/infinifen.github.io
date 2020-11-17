@@ -24,7 +24,7 @@ function randomProperty(obj) {
 
 
 function playNew() {
-    if(pickMode) return;
+    if (pickMode) return;
     randomChord = randomProperty(currentlyAllowedListenables)
     let base = getRandomInt(0, allAudio.length - Math.max(...randomChord.sounds));
     allAudio.forEach(function (a) {
@@ -34,110 +34,109 @@ function playNew() {
     arrMerge(indexToAudio(base, randomChord.sounds), currentTiming.times).forEach(function (a) {
         setTimeout(function (aa) {
             //aa.fastSeek(0);
-            aa.currentTime=0;
+            aa.currentTime = 0;
             aa.play();
         }, a[1], a[0])
     });
-    pickMode=true;
-    document.getElementById("playnew").disabled=true
-    document.getElementById("skip").disabled=false
+    pickMode = true;
+    document.getElementById("playnew").disabled = true
+    document.getElementById("skip").disabled = false
 }
-
 
 
 function guess(guess) {
-    if(!pickMode) return;
-    if(!Object.values(currentlyAllowedListenables).includes(guess)) return;
-    if(!(guess===null) && guess===randomChord){
-        status.innerHTML="Dobrze!"
-        correct+=1
+    if (!pickMode) return;
+    if (!Object.values(currentlyAllowedListenables).includes(guess)) return;
+    if (!(guess === null) && guess === randomChord) {
+        status.innerHTML = "Dobrze!"
+        correct += 1
         document.getElementById("wynik").animate(updatekeyframes, 500)
-    }else{
-        status.innerHTML=`źle... właściwe: ${randomChord.name}`
-        wrong+=1
+    } else {
+        status.innerHTML = `źle... właściwe: ${randomChord.name}`
+        wrong += 1
         document.getElementById("wynik").animate(errorkeyframes, 500)
     }
-    pickMode=false;
-    document.getElementById("playnew").disabled=false
-    document.getElementById("skip").disabled=true
+    pickMode = false;
+    document.getElementById("playnew").disabled = false
+    document.getElementById("skip").disabled = true
     updateScore()
 }
 
-function generateButtons(){
-    const chorddiv=document.getElementById("chords")
-    const intdiv=document.getElementById("intervals")
-    for(const int in INTERVALS){
-        let btn=document.createElement("button")
-        btn.id=`guessbtn${INTERVALS[int].name}`
-        btn.onclick=()=>guess(INTERVALS[int])
-        btn.innerHTML=INTERVALS[int].name
+function generateButtons() {
+    const chorddiv = document.getElementById("chords")
+    const intdiv = document.getElementById("intervals")
+    for (const int in INTERVALS) {
+        let btn = document.createElement("button")
+        btn.id = `guessbtn${INTERVALS[int].name}`
+        btn.onclick = () => guess(INTERVALS[int])
+        btn.innerHTML = INTERVALS[int].name
         intdiv.appendChild(btn);
     }
-    for(const ch in CHORDS){
-        let btn=document.createElement("button")
-        btn.id=`guessbtn${CHORDS[ch].name}`
-        btn.onclick=()=>guess(CHORDS[ch])
-        btn.innerHTML=CHORDS[ch].name
+    for (const ch in CHORDS) {
+        let btn = document.createElement("button")
+        btn.id = `guessbtn${CHORDS[ch].name}`
+        btn.onclick = () => guess(CHORDS[ch])
+        btn.innerHTML = CHORDS[ch].name
         chorddiv.appendChild(btn);
     }
 }
 
-function generateTimingSelect(){
-    const sel=document.getElementById("timingselect")
-    for (const t in TIMINGS){
-        let optn=document.createElement("option")
-        optn.innerHTML=TIMINGS[t].name;
-        optn.value=t
+function generateTimingSelect() {
+    const sel = document.getElementById("timingselect")
+    for (const t in TIMINGS) {
+        let optn = document.createElement("option")
+        optn.innerHTML = TIMINGS[t].name;
+        optn.value = t
         sel.appendChild(optn)
     }
 }
 
 function checkboxHandler(a, listenables) {
-    if(a.checked) {
+    if (a.checked) {
         Object.assign(currentlyAllowedListenables, listenables);
-    }else{
-        for (const l in listenables){
-            delete(currentlyAllowedListenables[l])
+    } else {
+        for (const l in listenables) {
+            delete (currentlyAllowedListenables[l])
         }
     }
 }
 
 function timingSelectHandler(a) {
-    currentTiming=TIMINGS[a.value]
+    currentTiming = TIMINGS[a.value]
 }
 
-function getRightPercent(){
-    return isNaN(Math.round(correct/(correct+wrong)*100)) ? 0 : Math.round(correct/(correct+wrong)*100);
+function getRightPercent() {
+    return isNaN(Math.round(correct / (correct + wrong) * 100)) ? 0 : Math.round(correct / (correct + wrong) * 100);
 }
 
 function updateScore() {
-    easter="";
+    easter = "";
     // if(url.searchParams.get("pani")==="datta" && getRightPercent()<75){
     //     easter=" <span id='easter'>(pani Datta cię zabije)</span>"
     // }
-    document.getElementById("wynik").innerHTML=`${correct}/${correct+wrong} <span id="prc">${getRightPercent()}%${easter}</span>`
+    document.getElementById("wynik").innerHTML = `${correct}/${correct + wrong} <span id="prc">${getRightPercent()}%${easter}</span>`
 }
 
-let updatekeyframes=[
-    {backgroundColor:"#aaffaa"},
-    {backgroundColor:"initial"}
+let updatekeyframes = [
+    {backgroundColor: "#aaffaa"},
+    {backgroundColor: "initial"}
 ];
 
-let errorkeyframes=[
-    {backgroundColor:"#ff6666"},
-    {backgroundColor:"initial"}
+let errorkeyframes = [
+    {backgroundColor: "#ff6666"},
+    {backgroundColor: "initial"}
 ];
 
 let randomChord;
-let pickMode=false;
-let correct=0;
-let wrong=0;
-let currentlyAllowedListenables=CHORDSANDINTERVALS;
-let currentTiming=TIMINGS.ATONCE;
+let pickMode = false;
+let correct = 0;
+let wrong = 0;
+let currentlyAllowedListenables = CHORDSANDINTERVALS;
+let currentTiming = TIMINGS.ATONCE;
 const allAudio = document.querySelectorAll('audio')
-const status=document.getElementById("status")
+const status = document.getElementById("status")
 generateButtons();
 generateTimingSelect();
 checkboxHandler(document.getElementById("togglechords"), CHORDS)
 checkboxHandler(document.getElementById("toggleints"), INTERVALS)
-let url=new URL(location.toString())
+let url = new URL(location.toString())
