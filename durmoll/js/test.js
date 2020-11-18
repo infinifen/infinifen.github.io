@@ -46,7 +46,7 @@ function playNew() {
 
 function guess(guess) {
     if (!pickMode) return;
-    if (!Object.values(currentlyAllowedListenables).includes(guess)) return;
+    if (!Object.values(currentlyAllowedListenables).includes(guess) && !guess===null) return;
     if (!(guess === null) && guess === randomChord) {
         status.innerHTML = "Dobrze!"
         correct += 1
