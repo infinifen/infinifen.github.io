@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>7 bag generator</title>
+    <link rel="stylesheet" href="7baggen.css">
 </head>
 <body>
 <p>this is a really quick thingy i made very quickly in a quick fashion</p>
 <p>man i overuse the word quick</p>
 <p>i'll make it better someday</p>
 <button onclick="sevenbag()">generate</button>
+<input type="checkbox" id="showpieces">
+<label for="showpieces">show piece images instead of letters</label>
 <h1>your shuffled bag is:</h1>
-<span id="bag">hey, you haven't shuffled anything yet!</span>
+<div id="bag">hey, you haven't shuffled anything yet!</div>
+<small>piece images are from <a href="https://tetr.io">tetr.io</a> go play it</small>
 <script src="7baggen.js"></script>
 </body>
 </html>

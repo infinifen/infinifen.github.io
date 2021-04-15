@@ -9,6 +9,18 @@ function shuffleArray(array) {
     return array;
 }
 
-function sevenbag(){
-    document.getElementById("bag").innerHTML=shuffleArray("itszljo".split("")).join("");
+function sevenbag() {
+    // document.getElementById("bag").innerHTML=shuffleArray("itszljo".split("")).join("");
+    let bag = shuffleArray("itlszjo".split(""));
+    if (document.getElementById("showpieces").checked) {
+        let elt = document.getElementById("bag");
+        elt.innerHTML="";
+        bag.forEach((piece) => {
+            let img = document.createElement("img");
+            img.src = `minos/${piece}.png`;
+            document.getElementById("bag").appendChild(img);
+        })
+    } else {
+        document.getElementById("bag").innerHTML = bag.join("");
+    }
 }
