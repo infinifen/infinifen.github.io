@@ -9,3 +9,4 @@ all you need to know is that it inserts commas into text randomly
 - superfarmer: some polish board game but now in your browser with a hard to understand UI and in polish
 - durmoll: another thing the purpose of you won't know, if you know something about music you can try but
 the notation can be way different from what you use, sorry
+- 7baggen: quick thing that generates bags for tetris because yes
