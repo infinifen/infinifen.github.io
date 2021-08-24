@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Iosevka SS14 Light";
+    src: url("iosevka-ss14-light.ttf") format("truetype");
+}
+
+body {
+    font-family: "Iosevka SS14 Light", monospace;
+    background-color: black;
+    color: #777777;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 800%;
+}
+
+#count-small {
+    font-size: 60%;
+}
