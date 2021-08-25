@@ -15,6 +15,10 @@ function getSecondsUntil(date) {
 
 setInterval(() => {
     let count = score(getSecondsUntil(countdown)).toFixed(10);
-    let [countMain, countFrac] = [count.substring(0, count.length - 7), count.substring(count.length - 7)];
-    document.getElementById("count").innerHTML = `${countMain}<span id="count-small">${countFrac}</span>`;
+    if (!isNaN(count)) {
+        let [countMain, countFrac] = [count.substring(0, count.length - 7), count.substring(count.length - 7)];
+        document.getElementById("count").innerHTML = `${countMain}<span id="count-small">${countFrac}</span>`;
+    } else {
+        document.getElementById("count").innerHTML = "the time has passed. nothing is eternal.";
+    }
 }, 16);
