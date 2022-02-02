@@ -16,9 +16,30 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 800%;
+    font-size: 12vmin;
 }
 
 #count-small {
     font-size: 60%;
+}
+
+#menu {
+    text-align: center;
+    height: 20%;
+    position: absolute;
+    top: calc(-20% + 3vh);
+    background-color: #333333;
+    color: #cccccc;
+    transition: all 1.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#menu-closeopen {
+    font-size: 2vh;
+}
+
+.menu-open {
+    top: 0 !important;
 }

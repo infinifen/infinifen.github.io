@@ -1,5 +1,3 @@
-countdown = new Date(2022, 7, 3); // !! js date is really fucking weird so this is actually august !!
-
 // x is the remaining time in seconds
 // i made this function up earlier too because i did another log timer but the function was more unpleasant for me so i changed it
 function score(x) {
@@ -12,6 +10,26 @@ function score(x) {
 function getSecondsUntil(date) {
     return (date - Date.now()) / 1000;
 }
+
+const menu = document.querySelector("#menu");
+const closeOpen = document.querySelector("#menu-closeopen");
+const targetDatePicker = document.querySelector("#target-date");
+
+closeOpen.addEventListener("click", function () {
+    console.log("click!!");
+    if (this.classList.contains("menu-open")) {
+        this.classList.remove("menu-open");
+    } else {
+        this.classList.add("menu-open");
+    }
+}.bind(menu))
+
+let countdown = new Date(targetDatePicker.value); // !! js date is really fucking weird so this is actually august !!
+
+targetDatePicker.addEventListener("input", function () {
+    console.log("target date changed")
+    countdown = new Date(this.value)
+}.bind(targetDatePicker))
 
 setInterval(() => {
     let count = score(getSecondsUntil(countdown)).toFixed(10);
