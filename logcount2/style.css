@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "Iosevka SS14 Light";
+    src: url("iosevka-ss14-light.ttf") format("truetype");
+}
+
+body {
+    font-family: "Iosevka SS14 Light", monospace;
+    background-color: black;
+    color: #777777;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12vmin;
+}
+
+#count-small {
+    font-size: 60%;
+}
+
+#menu {
+    text-align: center;
+    height: 20%;
+    position: absolute;
+    top: calc(-20% + 3vh);
+    background-color: #333333;
+    color: #cccccc;
+    transition: all 1.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#menu-closeopen {
+    font-size: 2vh;
+}
+
+.menu-open {
+    top: 0 !important;
+}

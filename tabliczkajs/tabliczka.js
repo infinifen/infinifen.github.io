@@ -105,7 +105,9 @@ function accScoring() {
 }
 
 function speedScoring() {
-    return (10000 / ((((tgiven * 1000 - (endTime - Date.now())) / 1000) / questionsAnswered)) / (1 + (questionsAnswered - questionsRight) * 0.1)).toFixed(0);
+    let acc = questionsRight / questionsAnswered;
+    let invAcc = 1 - acc
+    return (10000 / ((((tgiven * 1000 - (endTime - Date.now())) / 1000) / questionsAnswered)) / (1 + (questionsAnswered - questionsRight) * invAcc)).toFixed(0);
 }
 
 function sprawdz() {

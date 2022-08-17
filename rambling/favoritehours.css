@@ -1,0 +1,34 @@
+.introduction {
+    font-style: oblique;
+    font-weight: 900;
+    text-align: center;
+    background-image: linear-gradient(#66368c00, #66368c70, #66368c00);
+}
+
+.introduction h1 {
+    font-size: 450%;
+    letter-spacing: 0.1em;
+}
+
+.introduction h2 {
+    font-size: 250%;
+}
+
+.introduction h3 {
+    font-size: 150%;
+}
+
+body {
+    background-color: #000;
+    color: #998890;
+    font-family: 'Iosevka SS14 Web', monospace;
+}
+
+time {
+    font-weight: bolder;
+}
+
+a {
+    font-weight: 500;
+    color: crimson;
+}

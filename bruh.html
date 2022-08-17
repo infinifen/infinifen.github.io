@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes e {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+      :root {
+          position: relative;
+          height: 100vh;
+          background-image: linear-gradient(45deg, #be82ff, #082c66dd, #2d9f32);
+          z-index: 1;
+      }
+      :root::before {
+          position: absolute;
+          content: "";
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-image: linear-gradient(130deg, #11998e, #ea5353aa, #38ef7d);
+          z-index: -1;
+          opacity: 0;
+          animation: e 79.599984622s;
+          animation-fill-mode: both;
+      }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

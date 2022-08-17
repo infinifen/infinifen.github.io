@@ -1,0 +1,16 @@
+.bag img {
+    margin: 15px;
+    height: 70px;
+}
+
+.bag {
+    padding: 7px;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: 1px solid #00000080;
+    margin: 10px 0;
+}
+
+.bag_number {
+    display: block;
+}
