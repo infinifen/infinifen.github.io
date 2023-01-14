@@ -1,0 +1,11 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(90deg, red, blue);
+    text-align: center;
+}
+
+#time {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
